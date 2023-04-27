@@ -1,0 +1,66 @@
+###############################################
+
+	FX5
+
+###############################################
+
+2.
+
+INSERT INTO funcionarios
+SELECT *
+FROM empregados
+
+---------------------------------------------------------------------
+3.
+
+
+INSERT INTO funcionarios
+SELECT *
+FROM empregados
+WHERE idade > 1000
+
+
+---------------------------------------------------------------------
+4.
+
+UPDATE funcionarios
+SET salario = salario+100
+WHERE idade > 40
+
+
+---------------------------------------------------------------------
+5.
+
+UPDATE empregados
+set telefone = '01' + telefone
+WHERE CodPostal IN (SELECT CodPostal from postal WHERE localidade = 'LISBOA') 
+AND  telefone is NOT NULL
+
+---------------------------------------------------------------------
+6.
+
+UPDATE empregados
+SET nome = 'Carlos'
+WHERE nome = 'Bruno'
+
+---------------------------------------------------------------------
+7.
+
+DROP TABLE postal
+WHERE localidade IS NULL
+
+---------------------------------------------------------------------
+8.
+
+CREATE TABLE IF NOT EXISTS `empregados2` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(35) NOT NULL,
+  `cargo` varchar(35) NOT NULL,
+  `salario` float NOT NULL,
+  `telefone` varchar(9) NOT NULL,
+  `idade` int(11) NOT NULL,
+  `CodPostal` int(11) NOT NULL,
+  `CodC` int(11) NOT NULL)
+ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+---------------------------------------------------------------------

@@ -1,0 +1,38 @@
+###############################################
+
+	FX5EX9
+
+###############################################
+
+9.A
+
+---------------------------------------------------------------------
+INSERT INTO `comissao` (`CodC`, `valor`) VALUES
+(1, 350),
+(2, 300),
+(3, 150),
+(4, 50)
+
+INSERT INTO `postal` (`CodPostal`, `localidade`, `distrito`) VALUES
+(1000, 'Lisboa', 'Lisboa'),
+(4450, 'Maia', 'Porto'),
+(6200, 'Covilha', 'C.branco'),
+(6230, 'Fundao', 'C.branco'),
+(6320, 'Sabugal', 'Guarda');
+
+---------------------------------------------------------------------
+
+9.B
+
+---------------------------------------------------------------------
+
+INSERT INTO empregados 
+VALUES
+(1, 'Anibal', 'Tesoureiro/a', 950, '145659632', 35, 6200, 2),
+(2, 'Anita', 'Assitente Administrativa', 1000, '123654789', 25, 6200, 2),
+(3, 'Cruz', 'Ceo', 2500, '654789123', 48, 6200, 1),
+(4, 'Sousa', 'Gestor/a de Marketing', 1100, '123678945', 40, 6230, 1),
+(5, 'Xavier', 'Tecnico/a Especializado/a', 900, '125467893', 33, 1000, 3),
+(6, 'Bruno', 'Tecnico/a Especializado/a', 900, '369258147', 36, 6320, 3),
+(7, 'Alexandra', 'Tecnico/a Especializado/a', 900, '258369147', 28, 1000, 3),
+(8, 'Carla', 'Motorista', 800, '147235689', 26, 6230, 4);
