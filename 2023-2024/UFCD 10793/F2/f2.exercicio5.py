@@ -1,0 +1,5 @@
+print(round(4.78905,3))
+print(round(4.7,2))
+print(round(5.8954,1))
+print(round(0.567,2))
+print(f"{0.567:.0%}".format(1/3))
