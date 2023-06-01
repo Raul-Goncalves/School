@@ -1,0 +1,49 @@
+1 Como criar um índice fulltext?
+R: ALTER TABLE websites ADD FULLTEXT(titulo, descricao);
+
+2 Como efetuar uma pesquisa através de um índice fulltext?
+R: CREATE FULLTEXT INDEX INDEX_FT_DESCRICAO ON websites (titulo,descricao) ;
+
+3 Quais os parâmetros da função MATCH de um índice fulltext?
+R: Para efetuar a pesquisa através de um índice fulltext utilizamos as funções MATCH e AGAINST, 
+que recebem o nome dos campos e o valor a ser pesquisado, respectivamente.
+
+4 O que é o valor de relevância?
+R: O valor de relevância, representa a similaridade da string de pesquisa com a linha que está sendo analisada.
+
+5 Explicita o que é o grau de relevância 0 e o que o faz aumentar.
+R: Um valor de relevância 0 (zero) significa nenhuma semelhança, fazendo com que o registro não seja exibido.
+O que faz aumentar é a semelhança entre os campos da linha e os valores que estão sendo pesquisada.
+
+6 Como exibir, num resultado o valor de relevância?
+R:  SELECT titulo, MATCH (titulo,descricao) AGAINST ('Java Magazine')
+	FROM websites
+	WHERE MATCH (titulo, descricao) AGAINST ('Java Magazine');
+
+7 O mysql desconsidera palavras pequenas na pesquisa fulltext?
+R: O MySQL desconsidera palavras com menos de quatro caracteres. Expressões como “de”, “que” e “ou” são excluídas automaticamente da pesquisa.
+
+8 Qual a base das pesquisas fulltext em modo booleano?
+R: A pesquisa booleana tem como base a manipulação de strings de acordo com alguns operadores.
+
+9 Quais os operadores usados em modo boleano e para que servem?
+R: 
+
++ : a string deve estar presente em todos os registros retornados;
+
+- : a string não deve estar presente nos registros retornados;
+
+*: trabalha com parte da palavra a ser procurada;
+
+“ ”: retorna a string entre aspas duplas exatamente da maneira como foi digitada;
+
+( ): Agrupa palavras em sub-expressões;
+
+< >: Muda a contribuição da string no cálculo da relevância. O operador < decrementa a relevância e o operador > aumenta a relevância;
+
+~ : age como operador de negação. A contribuição de relevância da string se torna negativa.
+
+10 Qual o significado de: “Usar “~” para diminuir o valor de relevância da frase usada no AGAINST”
+R:O uso de “~” faz com que a palavra perca a importância na pesquisa, 
+sem efetivamente excluir a linha que a contém, como faz o operador “-“. 
+Dessa forma, utilize “~” para diminuir o valor de relevância da frase que contém a palavra em questão.

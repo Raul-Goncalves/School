@@ -1,0 +1,27 @@
+1
+
+create index postal2 on postal(localidade desc)
+
+2
+
+ALTER TABLE postal add endereço varchar(45) not null
+
+3
+
+CREATE TABLE empregados2 AS
+SELECT * FROM empregados;
+
+CREATE UNIQUE INDEX indid 
+on empregados2(id)
+
+4
+CREATE INDEX telefone on empregados (telefone(3)) 
+
+5
+
+ALTER TABLE empregados add FULLTEXT indnome(nome);
+
+6
+
+ALTER TABLE postal 
+DROP COLUMN endereço

@@ -1,0 +1,86 @@
+
+#####################################
+
+1
+
+SELECT paciente.nome
+from medico,consulta,paciente
+WHERE medico.nome = 'Alberto Martelo'
+AND medico.num_medico=consulta.num_medico 
+AND paciente.num_paciente=consulta.num_paciente
+
+2
+
+Linhas possiveis: 6*8*1=48
+Linhas Utilizadas: 1.000*1*1=1.002
+Na tabela medico e consultas tiveram que ser pesquisadas todas as linhas(ALL)
+E na tabela paciente é OQ_REF
+Na tabela medico e paciente as chaves  possiveis são primarias
+Velocidade da execução: 0,0047 segundos
+
+3
+
+CREATE FULLTEXT INDEX idx_nome
+on paciente(nome)
+
+4
+
+O resultado do explain será o mesmo mais temos um execução mais rapido do que o outro
+devido a criação 
+
+5
+A
+
+SELECT paciente.nome
+FROM paciente,medico,consulta
+WHERE MATCH(medico.nome) 
+against('"Alberto Martelo"' IN boolean MODE)
+AND  medico.num_medico=consulta.num_medico 
+AND consulta.num_paciente=paciente.num_paciente
+
+0.0020 segundos
+
+B
+
+SELECT paciente.nome
+FROM paciente,medico,consulta
+WHERE MATCH(medico.nome) 
+against('+Rosa -Maria' IN boolean MODE)
+AND  medico.num_medico=consulta.num_medico 
+AND consulta.num_paciente=paciente.num_paciente
+
+C
+
+SELECT paciente.nome
+FROM paciente,medico,consulta
+WHERE MATCH(medico.nome) 
+against('Mar*' IN boolean MODE)
+AND  medico.num_medico=consulta.num_medico 
+AND consulta.num_paciente=paciente.num_paciente
+
+D
+
+SELECT paciente.nome
+FROM paciente,medico,consulta
+WHERE MATCH(medico.nome) 
+against('Rosa' IN boolean MODE)
+AND  medico.num_medico=consulta.num_medico 
+AND consulta.num_paciente=paciente.num_paciente
+
+6
+A
+
+explain select nome
+from consulta,paciente
+where consulta.num_paciente=paciente.num_paciente 
+and MATCH (nome) 
+AGAINST ('António' in BOOLEAN MODE);
+
+
+B
+
+show index from paciente
+
+
+
+7
