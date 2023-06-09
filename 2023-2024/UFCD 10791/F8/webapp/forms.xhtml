@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>PI</title>
+</h:head>
+<h:body>
+	<h:outputText value="FORMULÁRIOS" />
+	<h:form>
+	<h:panelGrid columns="2">
+
+		<h:outputLabel value="Nome: "/>
+		<h:inputText maxlength="30" size="30"/>
+		<h:outputLabel value="PWD:"/>
+		<h:inputSecret maxlength="8" size="30"/>
+		<h:outputLabel value="Mensagem:"/>
+		<h:inputTextarea cols="50" row="5"/>
+		
+		</h:panelGrid>
+	<h:panelGrid columns="4" style="width: 538px; ">
+	
+		<h:button value="Guardar"/>
+		<h:button value="Editar"/>
+		<h:button value="Cancelar"/>
+		<h:button value="Guardar"/>
+		<h:button value="Fechar"/>
+		
+	</h:panelGrid>
+	<h:panelGrid columns="6">
+		
+		<h:selectManyCheckBox>
+			<f:selectItem itemValue="A" itemLabel="Aluno"/>
+			<f:selectItem itemValue="P" itemLabel="Professor"/>
+			<h:commandLink value="Voltar"></h:commandLink>
+			
+	</h:selectManyCheckBox>
+	
+	<h:selectOneRadio>
+			<f:selectItem itemValue="A" itemLabel="Aluno"/>
+			<f:selectItem itemValue="P" itemLabel="Professor"/>
+			<h:commandLink value="Voltar"></h:commandLink>
+			
+	</h:selectOneRadio>
+	
+	<h:selectOneMenu>
+		<f:selectItem itemLabel="ESFHP"/>
+		<f:selectItem itemLabel="EB TORTOSENDO"/>
+		<f:selectItem itemLabel="EB N2 PAUL"/>
+	</h:selectOneMenu>
+	
+	
+	
+	
+	</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

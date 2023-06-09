@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+	<h:form>
+		<p:editor widgetVar="Editor" value="#{editorView.text2}" height="300"
+			width="600" placeholder="Bota o conteúdo" required="true">
+			<f:facet name="toolbar">
+				<span class="ql-formats">
+					<button class="ql-bold"></button>
+					<button class="ql-italic"></button>
+					<button class="ql-underline"></button>
+					<button class="ql-strike"></button>
+				</span>
+				<span class="ql-formats"> <select class="ql-font"></select> <select
+					class="ql-size"></select>
+				</span>
+			</f:facet>
+		</p:editor>
+		<p:commandButton value="Guardar" update="@form" icon="pi pi-check" />
+		<p:commandButton value="Cancelar" update="@form" icon="pi pi-check" />
+	</h:form>
+</h:body>
+</html>

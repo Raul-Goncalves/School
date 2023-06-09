@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+
+<h:outputStylesheet library="css" name="estilo.css"/>
+<h:link href="resources/css/estilo.css" rel="stylesheet"/>
+
+<title>PrimeFaces</title>
+
+</h:head>
+<body>
+
+<div id="header">
+    <ui:insert name="top">
+    	<ui:include src="/Templates/header.xhtml"/>
+    </ui:insert>
+</div>
+
+
+<div id="content">
+  <ui:insert name="content">
+    	<ui:include src="/Templates/content.xhtml"/>
+  </ui:insert>
+</div>
+
+<div id="footer">
+  <ui:insert name="footer">
+ 	 <ui:include src="/Templates/footer.xhtml"/>
+  </ui:insert>
+</div>
+
+</body>
+
+</html>
